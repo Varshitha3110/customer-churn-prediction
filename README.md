@@ -1,17 +1,22 @@
 # 📊 Customer Churn Prediction
 
-An end-to-end machine learning project for predicting
-whether a telecom customer is likely to churn.
+An end-to-end machine learning project for predicting whether a telecom customer is likely to churn.
+
+---
 
 ## 🎯 Project Overview
 
-Customer churn is a major business problem for subscription-based
-companies. Identifying customers who are likely to leave allows
-businesses to take proactive retention actions.
+Customer churn is a major business problem for subscription-based companies. Identifying customers who are likely to leave allows businesses to take proactive retention actions.
 
-This project develops a machine learning pipeline that analyzes
-customer demographics, service usage, contract information and
-billing behavior to predict customer churn.
+This project develops a machine learning pipeline that analyzes customer demographics, service usage, contract information, and billing behavior to predict customer churn.
+
+The project is structured as a reusable machine learning application with separate modules for:
+
+- Data preprocessing
+- Model training
+- Prediction
+- Testing
+- Application execution
 
 ---
 
@@ -30,12 +35,14 @@ billing behavior to predict customer churn.
 - Confusion matrix
 - Churn probability prediction
 - Reusable ML pipeline
+- Automated testing
+- Docker support
 
 ---
 
 ## 🧠 Machine Learning Models
 
-The project evaluates:
+The project evaluates the following classification algorithms:
 
 - Logistic Regression
 - K-Nearest Neighbors
@@ -50,27 +57,24 @@ The project evaluates:
 
 ## 📈 Model Performance
 
-Initial notebook experiments produced the following
-test accuracy results:
+Initial notebook experiments produced the following test accuracy results:
 
 | Model | Accuracy |
 |---|---:|
-| Gradient Boosting | 80.74% |
-| AdaBoost | 80.67% |
-| Random Forest | 79.89% |
+| Gradient Boosting | **80.74%** |
+| AdaBoost | **80.67%** |
+| Random Forest | **79.89%** |
 | Decision Tree | 77.04% |
 | KNN | 76.62% |
 | Logistic Regression | 76.40% |
 | SVM | 75.91% |
 | Naive Bayes | 70.86% |
 
-> These results come from the original notebook experiment.
-> The production-style pipeline may produce different results
-> after improved preprocessing, stratification and evaluation.
+> **Note:** These results come from the original notebook experiment. The production-style pipeline may produce different results after improved preprocessing, stratification, cross-validation, and evaluation.
 
 ---
 
-## 🔬 Project Workflow
+# 🔬 Project Workflow
 
 ```text
 Customer Data
@@ -92,11 +96,11 @@ Preprocessing Pipeline
      │
      ├── Numerical Features
      │       ↓
-     │     Scaling
+     │    Scaling
      │
      └── Categorical Features
              ↓
-        One-Hot Encoding
+       One-Hot Encoding
      │
      ▼
 Model Training
@@ -108,4 +112,418 @@ Hyperparameter Tuning
 Model Evaluation
      │
      ▼
-Churn Prediction
+Churn Probability Prediction
+```
+
+---
+
+# 📁 Project Structure
+
+```text
+customer-churn-prediction/
+│
+├── src/
+│   ├── __init__.py
+│   ├── data_preprocessing.py
+│   ├── model_training.py
+│   └── predict.py
+│
+├── tests/
+│   └── test_pipeline.py
+│
+├── app.py
+├── train.py
+├── requirements.txt
+├── Dockerfile
+├── LICENSE
+└── README.md
+```
+
+### 📌 File Description
+
+| File | Description |
+|---|---|
+| `app.py` | Application entry point for making predictions |
+| `train.py` | Main script for training the machine learning model |
+| `src/data_preprocessing.py` | Data cleaning and preprocessing pipeline |
+| `src/model_training.py` | Model training, comparison and evaluation |
+| `src/predict.py` | Prediction and churn probability logic |
+| `tests/test_pipeline.py` | Automated tests for the ML pipeline |
+| `requirements.txt` | Python dependencies |
+| `Dockerfile` | Docker configuration |
+| `README.md` | Project documentation |
+| `LICENSE` | Project license |
+
+---
+
+# 🛠️ Technologies Used
+
+- **Python**
+- **Pandas**
+- **NumPy**
+- **Scikit-learn**
+- **Matplotlib**
+- **Seaborn**
+- **Pytest**
+- **Docker**
+
+---
+
+# 📥 Clone the Repository
+
+You can clone this repository to your local machine using Git.
+
+### 1. Clone using HTTPS
+
+```bash
+git clone https://github.com/<YOUR-USERNAME>/<REPOSITORY-NAME>.git
+```
+
+Example:
+
+```bash
+git clone https://github.com/varshithakoguru/customer-churn-prediction.git
+```
+
+### 2. Navigate into the project
+
+```bash
+cd customer-churn-prediction
+```
+
+---
+
+# 🍴 Fork the Repository
+
+If you want to create your own copy of this project and make changes independently:
+
+1. Open this repository on GitHub.
+2. Click the **Fork** button in the top-right corner.
+3. Select your GitHub account.
+4. Clone your forked repository.
+
+```bash
+git clone https://github.com/<YOUR-USERNAME>/<REPOSITORY-NAME>.git
+```
+
+Then:
+
+```bash
+cd <REPOSITORY-NAME>
+```
+
+---
+
+# 🐍 Create a Virtual Environment
+
+It is recommended to use a virtual environment before installing the dependencies.
+
+### Windows
+
+```bash
+python -m venv venv
+```
+
+```bash
+venv\Scripts\activate
+```
+
+### Linux / macOS
+
+```bash
+python3 -m venv venv
+```
+
+```bash
+source venv/bin/activate
+```
+
+---
+
+# 📦 Install Dependencies
+
+Install all required Python packages:
+
+```bash
+pip install -r requirements.txt
+```
+
+You can verify the installation with:
+
+```bash
+pip list
+```
+
+---
+
+# 🏋️ Train the Model
+
+Run the training pipeline using:
+
+```bash
+python train.py
+```
+
+The training process performs the required preprocessing and trains the machine learning models.
+
+Depending on the implementation, trained models and preprocessing artifacts will be generated by the pipeline.
+
+---
+
+# 🔮 Make Predictions
+
+After training the model, run the prediction application:
+
+```bash
+python app.py
+```
+
+The application can then be used to provide customer information and obtain:
+
+- Churn prediction
+- Churn probability
+- Prediction result
+
+Example output:
+
+```text
+Customer Churn Prediction
+-------------------------
+
+Prediction: Customer is likely to churn
+Churn Probability: 78.42%
+```
+
+---
+
+# 🧪 Run Tests
+
+The project includes automated tests using `pytest`.
+
+Run:
+
+```bash
+pytest
+```
+
+For more detailed output:
+
+```bash
+pytest -v
+```
+
+The tests validate important parts of the machine learning pipeline and help ensure that preprocessing and prediction functionality work correctly.
+
+---
+
+# 🐳 Run with Docker
+
+The project also includes a `Dockerfile` for containerized execution.
+
+### Build the Docker image
+
+```bash
+docker build -t customer-churn-prediction .
+```
+
+### Run the container
+
+```bash
+docker run customer-churn-prediction
+```
+
+If the application exposes a web port, map the port using:
+
+```bash
+docker run -p 5000:5000 customer-churn-prediction
+```
+
+> Update the port number if your `app.py` uses a different port.
+
+---
+
+# 🔄 Complete Setup
+
+For a fresh setup, you can use the following commands:
+
+```bash
+git clone https://github.com/<YOUR-USERNAME>/<REPOSITORY-NAME>.git
+
+cd <REPOSITORY-NAME>
+
+python -m venv venv
+```
+
+Activate the environment.
+
+### Windows
+
+```bash
+venv\Scripts\activate
+```
+
+### Linux / macOS
+
+```bash
+source venv/bin/activate
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Train the model:
+
+```bash
+python train.py
+```
+
+Run the application:
+
+```bash
+python app.py
+```
+
+Run tests:
+
+```bash
+pytest -v
+```
+
+---
+
+# 📊 Evaluation Metrics
+
+The models can be evaluated using multiple classification metrics:
+
+- Accuracy
+- Precision
+- Recall
+- F1-score
+- Confusion Matrix
+- Churn Probability
+
+Accuracy alone may not be sufficient for a real-world churn prediction system because churn datasets can contain class imbalance. Therefore, precision, recall, and F1-score should also be considered when selecting the final model.
+
+---
+
+# 💼 Business Use Case
+
+A telecom company can use this model to identify customers who have a high probability of leaving.
+
+For example:
+
+```text
+Customer
+   │
+   ├── Contract Information
+   ├── Monthly Charges
+   ├── Tenure
+   ├── Internet Service
+   ├── Payment Method
+   └── Service Usage
+          │
+          ▼
+   Machine Learning Model
+          │
+          ▼
+   Churn Probability
+          │
+          ├── Low Risk
+          │
+          └── High Risk
+                 │
+                 ▼
+        Retention Campaign
+```
+
+Customers with a high churn probability can be targeted with:
+
+- Personalized offers
+- Discounts
+- Contract upgrades
+- Customer support
+- Loyalty programs
+- Service improvements
+
+---
+
+# 🔐 Reproducibility
+
+To reproduce the project:
+
+1. Clone or fork the repository.
+2. Create a Python virtual environment.
+3. Install dependencies from `requirements.txt`.
+4. Run the training pipeline.
+5. Run the prediction application.
+6. Execute the test suite.
+
+```bash
+python train.py
+python app.py
+pytest -v
+```
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome.
+
+### 1. Fork the repository
+
+Create your own fork using GitHub.
+
+### 2. Clone your fork
+
+```bash
+git clone https://github.com/<YOUR-USERNAME>/<REPOSITORY-NAME>.git
+```
+
+### 3. Create a new branch
+
+```bash
+git checkout -b feature/your-feature
+```
+
+### 4. Make your changes
+
+Update the code, tests, or documentation.
+
+### 5. Commit your changes
+
+```bash
+git add .
+git commit -m "Add new feature"
+```
+
+### 6. Push the branch
+
+```bash
+git push origin feature/your-feature
+```
+
+### 7. Create a Pull Request
+
+Open the repository on GitHub and create a Pull Request from your branch.
+
+---
+
+# 📜 License
+
+This project is licensed under the terms specified in the `LICENSE` file.
+
+---
+
+# 👩‍💻 Author
+
+**Koguru Varshitha**
+
+Machine Learning | Data Analytics | AI/ML | Python
+
+---
+
+⭐ If you found this project useful, consider giving the repository a **Star** on GitHub.

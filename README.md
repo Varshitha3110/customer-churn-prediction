@@ -347,9 +347,9 @@ docker run -p 5000:5000 customer-churn-prediction
 For a fresh setup, you can use the following commands:
 
 ```bash
-git clone https://github.com/<YOUR-USERNAME>/<REPOSITORY-NAME>.git
+git clone https://github.com/Varshitha3110/customer-churn-prediction.git
 
-cd <REPOSITORY-NAME>
+cd customer-churn-prediction
 
 python -m venv venv
 ```
@@ -480,7 +480,7 @@ Create your own fork using GitHub.
 ### 2. Clone your fork
 
 ```bash
-git clone https://github.com/<YOUR-USERNAME>/<REPOSITORY-NAME>.git
+git clone https://github.com/<YOUR-USERNAME>/customer-churn-prediction.git
 ```
 
 ### 3. Create a new branch
